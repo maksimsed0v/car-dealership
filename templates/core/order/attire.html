@@ -1,0 +1,22 @@
+{% extends "core/order/base.html" %}
+{% block title %}заказ-наряд{% endblock %}
+{% block content %}
+<h1>ЗАКАЗ-НАРЯД № {{ attire.id }}</h1>
+<h2>Наименование организации: Автосалон</h2>
+<h2>Заказчик: {{ attire.client.first_name }} {{ attire.client.last_name }}</h2>
+<h2>Исполнитель: {{ attire.employee.first_name }} {{ attire.employee.last_name }}</h2>
+<h2>Дата: {{ attire.date }}</h2>
+<h2>Автомобили:</h2>
+{% for car_item in cars %}
+    <h3>{{ car_item.car.mark }} {{ car_item.car.color }} {{ car_item.number }} шт. Цена за шт.: {{ car_item.car.sales_price }}р. Итого: {{ car_item.total_price}}р.</h3>
+{% endfor %}
+<h2>Запчасти:</h2>
+{% for sparepart_item in spareparts %}
+<h3>{{ sparepart_item.sparepart.name }} {{ sparepart_item.number }} шт. Цена за шт.: {{ sparepart_item.sparepart.sales_price }}р. Итого: {{ sparepart_item.total_price}}р.</h3>
+{% endfor %}
+<h2>Ремонтные работы:</h2>
+{% for repair_item in repairs %}
+<h3>{{ repair_item.repair.name }} {{ repair_item.number }} шт. Цена за шт.: {{ repair_item.repair.sales_price }}р. Итого: {{ repair_item.total_price}}р.</h3>
+{% endfor %}
+<h1>ВСЕГО: {{ attire.total_price }}р.</h1>
+{% endblock %}

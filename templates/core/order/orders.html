@@ -1,0 +1,14 @@
+{% extends "core/order/base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+<h1>My Blog</h1>
+    {% for order in orders %}
+<h2>
+    <a href="{{ order.get_absolute_url }}">{{ order.id }}</a>
+</h2>
+<p class="date">
+    Published {{ order.total_orice }}
+</p>
+{{ order.client}}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "admin/index.html" %}
+{% load crispy_forms_tags %}
+{% block extrahead %}
+{% load bootstrap4 %}
+<script src="{% bootstrap_jquery_url %}"></script>
+{% bootstrap_javascript %}
+{% bootstrap_css %}
+{% endblock %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-0">Добро пожаловать!</legend>
+        </fieldset>
+        <div class="form-group">
+            <div class="mb-4"> Наш автосалон — это выгодные цены на новые авто! Благодаря нашему сервису любой клиент
+                всегда сможет подобрать именно тот автомобиль, который соответствует всем его требованиям.
+                У нас вы с легкостью сможете отремонтировать свою машину по выгодной цене.
+                Ну и конечно, вас ожидает широкий выбор автомобилей самого разного ценового диапазона и года выпуска.
+            </div>
+            <fieldset  class="form-group">
+                <!--<center>-->
+                     <a class="p-3 mb-2 w-100 bg-dark btn text-white" href="/registration" role="button">Зарегистрироваться</a>
+                     <a class="p-3 mb-2 w-100 bg-dark btn text-white" href="/admin/login" role="button">Войти</a>
+                <!--</center>-->
+            </fieldset>
+        </div>
+    </form>
+    <div class="border-top pt-1">
+        <small class="text-muted">
+            Created by Sedov Maksim
+        </small>
+    </div>
+</div>
+{% block sidebar %}
+{% endblock %}
+{% endblock content %}

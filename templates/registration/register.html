@@ -1,0 +1,29 @@
+{% extends "admin/index.html" %}
+{% load crispy_forms_tags %}
+{% block extrahead %}
+{% load bootstrap4 %}
+<script src="{% bootstrap_jquery_url %}"></script>
+{% bootstrap_javascript %}
+{% bootstrap_css %}
+{% endblock %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Регистрация</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-dark" type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Уже есть аккаунт? <a class="text-info" href="/admin/login">Войти</a>
+        </small>
+    </div>
+</div>
+{% block sidebar %}
+{% endblock %}
+{% endblock content %}
